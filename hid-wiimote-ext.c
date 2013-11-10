@@ -440,10 +440,10 @@ static void handler_classic(struct wiimote_ext *ext, const __u8 *payload)
 
 	if (ext->motionp) {
 		lx = payload[0] & 0x3e;
-		ly = payload[0] & 0x3e;
+		ly = payload[1] & 0x3e;
 	} else {
 		lx = payload[0] & 0x3f;
-		ly = payload[0] & 0x3f;
+		ly = payload[1] & 0x3f;
 	}
 
 	rx = (payload[0] >> 3) & 0x14;

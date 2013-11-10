@@ -468,42 +468,42 @@ static void handler_classic(struct wiimote_ext *ext, const __u8 *payload)
 	input_report_abs(ext->input, ABS_HAT3Y, lt - 0x20);
 
 	input_report_key(ext->input, wiiext_keymap[WIIEXT_KEY_RIGHT],
-							!!(payload[4] & 0x80));
+							!(payload[4] & 0x80));
 	input_report_key(ext->input, wiiext_keymap[WIIEXT_KEY_DOWN],
-							!!(payload[4] & 0x40));
+							!(payload[4] & 0x40));
 	input_report_key(ext->input, wiiext_keymap[WIIEXT_KEY_LT],
-							!!(payload[4] & 0x20));
+							!(payload[4] & 0x20));
 	input_report_key(ext->input, wiiext_keymap[WIIEXT_KEY_MINUS],
-							!!(payload[4] & 0x10));
+							!(payload[4] & 0x10));
 	input_report_key(ext->input, wiiext_keymap[WIIEXT_KEY_HOME],
-							!!(payload[4] & 0x08));
+							!(payload[4] & 0x08));
 	input_report_key(ext->input, wiiext_keymap[WIIEXT_KEY_PLUS],
-							!!(payload[4] & 0x04));
+							!(payload[4] & 0x04));
 	input_report_key(ext->input, wiiext_keymap[WIIEXT_KEY_RT],
-							!!(payload[4] & 0x02));
+							!(payload[4] & 0x02));
 	input_report_key(ext->input, wiiext_keymap[WIIEXT_KEY_ZL],
-							!!(payload[5] & 0x80));
+							!(payload[5] & 0x80));
 	input_report_key(ext->input, wiiext_keymap[WIIEXT_KEY_B],
-							!!(payload[5] & 0x40));
+							!(payload[5] & 0x40));
 	input_report_key(ext->input, wiiext_keymap[WIIEXT_KEY_Y],
-							!!(payload[5] & 0x20));
+							!(payload[5] & 0x20));
 	input_report_key(ext->input, wiiext_keymap[WIIEXT_KEY_A],
-							!!(payload[5] & 0x10));
+							!(payload[5] & 0x10));
 	input_report_key(ext->input, wiiext_keymap[WIIEXT_KEY_X],
-							!!(payload[5] & 0x08));
+							!(payload[5] & 0x08));
 	input_report_key(ext->input, wiiext_keymap[WIIEXT_KEY_ZR],
-							!!(payload[5] & 0x04));
+							!(payload[5] & 0x04));
 
 	if (ext->motionp) {
 		input_report_key(ext->input, wiiext_keymap[WIIEXT_KEY_UP],
-							!!(payload[0] & 0x01));
+							!(payload[0] & 0x01));
 		input_report_key(ext->input, wiiext_keymap[WIIEXT_KEY_LEFT],
-							!!(payload[1] & 0x01));
+							!(payload[1] & 0x01));
 	} else {
 		input_report_key(ext->input, wiiext_keymap[WIIEXT_KEY_UP],
-							!!(payload[5] & 0x01));
+							!(payload[5] & 0x01));
 		input_report_key(ext->input, wiiext_keymap[WIIEXT_KEY_LEFT],
-							!!(payload[5] & 0x02));
+							!(payload[5] & 0x02));
 	}
 
 	input_sync(ext->input);

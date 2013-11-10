@@ -393,7 +393,7 @@ static void handler_nunchuck(struct wiimote_ext *ext, const __u8 *payload)
 
 static void handler_classic(struct wiimote_ext *ext, const __u8 *payload)
 {
-	__s8 rx, ry, lx, ly, lt, rt;
+	__s8 rx, ry, lx, ly, lt, rt, dx, dy;
 
 	/*   Byte |  8  |  7  |  6  |  5  |  4  |  3  |  2  |  1  |
 	 *   -----+-----+-----+-----+-----+-----+-----+-----+-----+
@@ -455,10 +455,22 @@ static void handler_classic(struct wiimote_ext *ext, const __u8 *payload)
 	lt = (payload[2] >> 2) & 0x18;
 	lt |= (payload[3] >> 5) & 0x07;
 
+	dx = -!!(payload[4] & 0x80);
+	dy = !!(payload[4] & 0x40);
+	if (ext->motionp) {
+		dy -= !!(payload[0] & 0x01);
+		dx += !!(payload[1] & 0x01);
+	} else {
+		dy -= !!(payload[5] & 0x01);
+		dx += !!(payload[5] & 0x02);
+	}
+
 	rx <<= 1;
 	ry <<= 1;
 	rt <<= 1;
 	lt <<= 1;
+	dx <<= 6;
+	dy <<= 6;
 
 	input_report_abs(ext->input, ABS_HAT1X, lx - 0x20);
 	input_report_abs(ext->input, ABS_HAT1Y, ly - 0x20);
@@ -466,6 +478,8 @@ static void handler_classic(struct wiimote_ext *ext, const __u8 *payload)
 	input_report_abs(ext->input, ABS_HAT2Y, ry - 0x20);
 	input_report_abs(ext->input, ABS_HAT3X, rt - 0x20);
 	input_report_abs(ext->input, ABS_HAT3Y, lt - 0x20);
+	input_report_abs(ext->input, ABS_HAT0X, dx);
+	input_report_abs(ext->input, ABS_HAT0Y, dy);
 
 	input_report_key(ext->input, wiiext_keymap[WIIEXT_KEY_RIGHT],
 							!(payload[4] & 0x80));

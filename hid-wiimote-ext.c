@@ -446,7 +446,7 @@ static void handler_classic(struct wiimote_ext *ext, const __u8 *payload)
 		ly = payload[1] & 0x3f;
 	}
 
-	rx = (payload[0] >> 3) & 0x14;
+	rx = (payload[0] >> 3) & 0x18;
 	rx |= (payload[1] >> 5) & 0x06;
 	rx |= (payload[2] >> 7) & 0x01;
 	ry = payload[2] & 0x1f;

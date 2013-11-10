@@ -476,8 +476,8 @@ static void handler_classic(struct wiimote_ext *ext, const __u8 *payload)
 	input_report_abs(ext->input, ABS_HAT1Y, ly - 0x20);
 	input_report_abs(ext->input, ABS_HAT2X, rx - 0x20);
 	input_report_abs(ext->input, ABS_HAT2Y, ry - 0x20);
-	input_report_abs(ext->input, ABS_HAT3X, rt - 0x20);
-	input_report_abs(ext->input, ABS_HAT3Y, lt - 0x20);
+	input_report_abs(ext->input, ABS_HAT3X, rt);
+	input_report_abs(ext->input, ABS_HAT3Y, lt);
 	input_report_abs(ext->input, ABS_HAT0X, dx);
 	input_report_abs(ext->input, ABS_HAT0Y, dy);
 

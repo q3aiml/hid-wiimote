@@ -1,0 +1,20 @@
+Source: hid-wiimote-dkms
+Section: contrib/kernel
+Priority: extra
+Maintainer: Andy Clayton <q3aiml@gmail.com>
+Build-Depends: debhelper (>= 8), dkms
+Standards-Version: 3.9.2
+
+Package: hid-wiimote-dkms
+Architecture: all
+Multi-Arch: foreign
+Depends: ${misc:Depends}, dkms
+Description: updated kernel module for Nintendo Wii Remote
+ This updates the hid-wiimote kernel driver for the Nintendo Wii
+ Remote to work in a more useful way (wihout requiring a translation
+ layer). This includes fixing the button press mapping so that
+ buttons don't default to being pressed and then claiming they are
+ released when you press them down.
+ .
+ This package contains the dkms sources. When installed, it will build
+ the module for your kernel.

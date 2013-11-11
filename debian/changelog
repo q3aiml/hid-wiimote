@@ -1,3 +1,9 @@
+hid-wiimote-dkms (1.0.1) quantal; urgency=low
+
+  * Fix missing hid-ids.h error
+
+ -- Andy Clayton <q3aiml@gmail.com>  Sun, 12 Aug 2012 23:32:25 -0500
+
 hid-wiimote-dkms (1.0.0) quantal; urgency=low
 
   * initial 

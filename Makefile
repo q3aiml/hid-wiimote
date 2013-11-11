@@ -1,5 +1,6 @@
 # only do hid-wiimote-debug.o if CONFIG_DEBUG_FS
-obj-m = hid-wiimote-core.o hid-wiimote-ext.o hid-wiimote-debug.o
+obj-m = hid-wiimote.o
+hid-wiimote-y := hid-wiimote-core.o hid-wiimote-ext.o hid-wiimote-debug.o
 
 KVERSION = $(shell uname -r)
 all:

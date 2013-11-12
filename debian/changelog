@@ -1,3 +1,11 @@
+hid-wiimote-dkms (1.0.3) quantal; urgency=low
+
+  * add Nintendo-Wii-Remote-Plus IDs (thanks Evandro P. Alves)
+
+    from https://patchwork.kernel.org/patch/1624551/
+
+ -- Andy Clayton <q3aiml@gmail.com>  Fri, 08 Mar 2013 20:48:56 -0600
+
 hid-wiimote-dkms (1.0.2) quantal; urgency=low
 
   * fix hid-wiimote-dkms.dkms to include BUILT_MODULE_NAME

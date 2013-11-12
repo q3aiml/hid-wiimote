@@ -1,3 +1,9 @@
+hid-wiimote-dkms (1.0.1ubuntu1) quantal; urgency=low
+
+  * Bump due to accidental upload of 1.0.1 to precise instead of quantal 
+
+ -- Andy Clayton <q3aiml@gmail.com>  Mon, 13 Aug 2012 22:08:27 -0500
+
 hid-wiimote-dkms (1.0.1) quantal; urgency=low
 
   * Fix missing hid-ids.h error

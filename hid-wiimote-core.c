@@ -1159,7 +1159,7 @@ static void wiimote_destroy(struct wiimote_data *wdata)
 	wiiext_deinit(wdata);
 	wiimote_leds_destroy(wdata);
 
-	power_supply_unregister(&wdata->battery);
+	//power_supply_unregister(&wdata->battery);
 	input_unregister_device(wdata->accel);
 	input_unregister_device(wdata->ir);
 	input_unregister_device(wdata->input);
@@ -1213,6 +1213,7 @@ static int wiimote_hid_probe(struct hid_device *hdev,
 		goto err_input;
 	}
 
+    /*
 	wdata->battery.properties = wiimote_battery_props;
 	wdata->battery.num_properties = ARRAY_SIZE(wiimote_battery_props);
 	wdata->battery.get_property = wiimote_battery_get_property;
@@ -1227,6 +1228,7 @@ static int wiimote_hid_probe(struct hid_device *hdev,
 	}
 
 	power_supply_powers(&wdata->battery, &hdev->dev);
+    */
 
 	ret = wiimote_leds_create(wdata);
 	if (ret)

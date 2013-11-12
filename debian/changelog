@@ -1,3 +1,10 @@
+hid-wiimote-dkms (1.0.4) UNRELEASED; urgency=low
+
+  * Use ABS_X and ABS_Y so udev recognizes the classic controller as a
+    joystick
+
+ -- Andy Clayton <q3aiml@gmail.com>  Mon, 16 Sep 2013 22:59:28 -0500
+
 hid-wiimote-dkms (1.0.3) quantal; urgency=low
 
   * add Nintendo-Wii-Remote-Plus IDs (thanks Evandro P. Alves)

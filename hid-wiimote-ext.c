@@ -472,8 +472,8 @@ static void handler_classic(struct wiimote_ext *ext, const __u8 *payload)
 	dx <<= 6;
 	dy <<= 6;
 
-	input_report_abs(ext->input, ABS_HAT1X, lx - 0x20);
-	input_report_abs(ext->input, ABS_HAT1Y, ly - 0x20);
+	input_report_abs(ext->input, ABS_X, lx - 0x20);
+	input_report_abs(ext->input, ABS_Y, ly - 0x20);
 	input_report_abs(ext->input, ABS_HAT2X, rx - 0x20);
 	input_report_abs(ext->input, ABS_HAT2Y, ry - 0x20);
 	input_report_abs(ext->input, ABS_HAT3X, rt);
@@ -660,16 +660,16 @@ int wiiext_init(struct wiimote_data *wdata)
 	set_bit(EV_ABS, ext->input->evbit);
 	set_bit(ABS_HAT0X, ext->input->absbit);
 	set_bit(ABS_HAT0Y, ext->input->absbit);
-	set_bit(ABS_HAT1X, ext->input->absbit);
-	set_bit(ABS_HAT1Y, ext->input->absbit);
+	set_bit(ABS_X, ext->input->absbit);
+	set_bit(ABS_Y, ext->input->absbit);
 	set_bit(ABS_HAT2X, ext->input->absbit);
 	set_bit(ABS_HAT2Y, ext->input->absbit);
 	set_bit(ABS_HAT3X, ext->input->absbit);
 	set_bit(ABS_HAT3Y, ext->input->absbit);
 	input_set_abs_params(ext->input, ABS_HAT0X, -120, 120, 2, 4);
 	input_set_abs_params(ext->input, ABS_HAT0Y, -120, 120, 2, 4);
-	input_set_abs_params(ext->input, ABS_HAT1X, -30, 30, 1, 1);
-	input_set_abs_params(ext->input, ABS_HAT1Y, -30, 30, 1, 1);
+	input_set_abs_params(ext->input, ABS_X, -30, 30, 1, 1);
+	input_set_abs_params(ext->input, ABS_Y, -30, 30, 1, 1);
 	input_set_abs_params(ext->input, ABS_HAT2X, -30, 30, 1, 1);
 	input_set_abs_params(ext->input, ABS_HAT2Y, -30, 30, 1, 1);
 	input_set_abs_params(ext->input, ABS_HAT3X, -30, 30, 1, 1);
